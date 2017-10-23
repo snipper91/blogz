@@ -45,9 +45,10 @@ def index():
 @app.route('/blog', methods=['POST','GET'])
 def blog():
 
-    author = request.arg.get('user')
-    if author:
+    if request.args.get('user'):
+        author = request.args.get('user')
         blogs = Blog.query.filter_by(user_id=author)
+        user = {}
         user[author] = User.query.filter_by(id=author)
         return render_template('blog.html', blogs=blogs, user_dict=user)
 
