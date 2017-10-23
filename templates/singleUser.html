@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Build A Blog</h1>
+<h1>{{user.username}}</h1>
 
 <ul>
     {% for blog in blogs %}
@@ -10,7 +10,6 @@
     <li>
         {{blog.body}}
         <br>
-        <a href='/blog?user={{blog.user_id}}'>{{user_dict[blog.user_id]}}</a> 
     </li>
     {% endfor %}
 
